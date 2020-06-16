@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.다음 radio버튼을 클릭했을 때 "동의했습니다." 경고창을 띄우고 value값을 출력 -->
+    <input type="checkbox" onclick="check2(this)" value="1" id="1">조항1
+    <input type="checkbox" onclick="check2(this)" value="2" id="2">조항2
+    <input type="checkbox" onclick="check2(this)" value="3" id="3">조항3
+    <input type="checkbox" onclick="check2(this)" value="4" id="4">조항4
+    <input type="checkbox" onclick="check2(this)" value="5" id="5">조항5
+    
+    <script>
+        function check2(a){
+            
+            if(a.checked){//checked 속성만 있으면 true반환
+                alert(a.value+"조항에 동의했습니다.");
+            }else{
+                return false; //종료
+            }
+            
+            /* alert("동의햇습니다.");
+             console.log(a);
+             console.log(a.value);*/ 
+        }
+    </script>
+    
+    <hr>
+    <!-- 2.버튼을 클릭했을 때 input태그와 공백여부, 기억하기의 체크여부를 확인 -->
+    ID:<input type="text" id="id"><br>
+    기억하기:<input type="checkbox" id ="remember">
+    <button type="button" id="check2">확인</button>
+    
+    <script>
+        var id = document.getElementById("id");
+        var remember = document.getElementById("remember");
+        var check2 = document.getElementById("check2");
+        check2.onclick = function(){
+            //console.log(id);
+            //console.log(remember);
+            
+            console.log("value값:"+id.value);
+            console.log("checked여부"+remember.checked);
+            
+        }
+           
+    </script>
+
+
+</body>
+</html>

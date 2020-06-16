@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* function func(){
+            var a= "홍길동";
+        }//여기서 a는 해제
+        console.log(a);*/
+        
+        //getter setter 개념봐 비슷
+        function func(){
+            var a = "홍길동";
+            var result = function (){
+                return a;
+            }
+            /*console.log(result());*/
+            return result;
+        }
+        /*func();*/
+        var b = func();
+        console.log(b);//함수 자체 반환 
+        console.log(b());//함수 실행시 a의 자원이 해제되지 않는다.
+        //클로저 -내부 함수 (익명함수)가 func1()을 클로즈 할 수 있는 키를 가지고 있다. 
+        //외부 함수 밖에섯 내부함수가 호출 되더라도, 외부 함수 지역 변수에 접근이 가능한데,
+        //이런(함수)들을 클로져라 합니다.* 자바스크립트= 함수 지향 * 
+        //객체로 묶어서 한번에 나올수 있게함
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 페이지 이동은 location.href = "경로" -->
+    <script>
+        window.onload = function (){
+            var btn = document.getElementById("ok")
+            var btn2 = document.getElementById("ok1")
+                     
+            
+
+
+            btn.onclick = function (){
+                if(confirm("이동하시겠습니까?")){
+
+                    location.href="https://www.naver.com/"
+                }
+            }
+            
+            btn2.onclick =function(){
+                if(confirm("이동하시겠습니까?")){
+
+                 
+                    location.href="https://www.google.com/"
+                }
+              
+            }
+        }
+        
+        
+    </script>
+    <button type="button" id="ok">네이버로이동</button>
+    <button type="button" id="ok1" >구글로이동</button>
+
+<!--   function check(){               
+                console.log(location.href="https://www.naver.com/");      
+            }
+            function check2(){               
+                console.log(location.href="https://www.google.com/");      
+            } -->
+<!--  <button type="button" onclick="check(this)" id="ok1" >네이버로이동</button>
+        <button type="button" onclick="check2(this)"id="ok2">구글로이동</button> -->
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바스크립트 객체는 {} 표기하고, 쌍으로 지니는 형태입니다.
+        //자바스크립트 객체 접근 방법 2가지 
+        //1.찍어서접근
+        //2.객체명["키"]로 접근
+        var person = {name:"홍길동", age:20, arr:[1,2,3]};
+        console.log(person);
+        //1.방법
+        console.log(person.name);
+        console.log(person.age);
+        console.log(person.arr[0]);
+        //2.방법
+        console.log(person["name"]);
+        console.log(person["age"]);
+        console.log(person["arr"][0]);
+
+        //객체안에 객체
+        var exam = {kor:90, eng:80, math:70};
+        console.log(exam);
+        var kim = {name:"홍길동", exam:exam}; // exam 안에 위 exam객체를 넣을수 있음
+        console.log(kim);
+
+        console.log(kim);
+        console.log(kim.exam.kor);//국어점수
+        console.log(kim.exam.eng);//영어 점수
+        console.log(kim["exam"]["math"]);//수학점수
+                
+        //배열안에 객체(많이 사용되는형태) []=배열 {}=객체
+        var arr= [
+            {id:1, title:"hi", content:"헐"},
+            {id:2, title:"bye", content:"헠"},
+            {id:3, title:"hello", content:"쀍"}            
+        ]
+        console.log(arr);    
+        console.log(arr[0].title);    
+        console.log(arr[0]["title"]);    
+        //객체와 반복문
+        for(var i =0; i < arr.length; i++){
+            console.log(arr[i].id);
+            console.log(arr[i].title);
+            console.log(arr[i].content);
+
+        }
+
+        var arr2 =[
+            {
+                name:"홍길동",
+                age:20,
+                subject:["자바","JSP","SPRING"],
+                birth:20200101
+            },
+            {
+                name:"이순신",
+                age:30,
+                subject:["JSP","SPRING"],
+                birth:20200101
+            }
+        ]
+        /* console.log(arr2);
+        console.log(arr2[0].subject[0])
+        console.log(arr2[0].subject[1])
+        console.log(arr2[0].subject[2]) */
+
+        console.log("===================================");
+        
+        for(var i=0; i<=arr2.length; i++){
+            //console.log(arr2[i]);
+            for(var j=0; j < arr2[i].subject.length; j++){
+                console.log(arr2[i].subject[j]);
+            }
+            
+        }  
+  
+    </script>
+</body>
+</html>
