@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="naver">네이버로 변경 버튼</button>
+    <button id="google">구글로 변경 버튼</button>
+
+    <form action="#" method="post" name="regForm">
+        <input type="hidden" name="num" value="">
+        <input type="text" name="title" placeholder="제목">
+    </form>
+        
+    <script>
+        var naver = document.getElementById("naver");
+        naver.onclick=function(){
+            //폼은 유일하게 document.폼이름(document의 자식 태그라서 가능 )으로 접근이 가능함
+            
+            //document.regForm.setAttribute("action", "https://www.naver.com")
+            document.regForm.action = "https://www.naver.com"; //위와 같은 기능이지만 아래를 더 선호 :이유는 더빠르기 때문에 
+            document.regForm.submit();
+
+        }
+
+        var google = document.getElementById("google");
+        google.onclick = function(){
+            document.regForm.action = "https://www.google.com"; //위와 같은 기능이지만 아래를 더 선호 :이유는 더빠르기 때문에 
+            document.regForm.submit();
+
+        }
+    </script>
+
+    <h2>클래스를 이용해서 하나의 버튼을 토글형태</h2>
+
+    <button class="toggle" id="toggle">토글버튼</button>
+
+    <script>
+        //클래스를 이용해서 하나의 버튼을 토글형태
+        toggle = document.getElementById("toggle");
+        toggle.onclick = function(){
+            console.dir(toggle);// 이거 치면 다른거 명령어 볼수있음 
+            if(toggle.className == "toggle"){// toggle 
+                toggle.innerHTML = "변경";
+                toggle.className = "change";
+            }else{
+                toggle.innerHTML="토글버튼";
+                toggle.className = "toggle";
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>

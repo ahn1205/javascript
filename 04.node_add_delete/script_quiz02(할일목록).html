@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        
+    </style>
+</head>
+<body>
+    <form class="nameForm">
+        <h3 class="nameTitle"></h3>
+        <input type="text" placeholder="이름을 입력하세요 ">
+        <button type="button">확인</button>
+    </form>
+      
+    <form class="todoForm">
+        <input type="text" placeholder="당신의 할일을 적으세요 ">
+        <button type="button">확인</button>
+
+    </form>
+   
+    <ul class="todoList">
+        
+    </ul>
+
+    <script>
+        var nameForm = document.querySelector(".nameForm");
+
+        var nameTitle = nameForm.querySelector(".nameTitle");
+        var nameInput = nameForm.querySelector("input");
+        var nameButton = nameForm.querySelector("button");
+
+
+        nameButton.addEventListener("click",regist);
+        function regist(){
+           nameTitle.innerHTML = nameInput.value + "님 안녕하세요 ''";
+           nameInput.style.display ="none";//input숨김
+           nameButton.style.display ="none";//버튼 숨김
+
+        }
+
+        //할일 등록기능 
+        var todoList = document.querySelector(".todoList");
+        var todoForm = document.querySelector(".todoForm");
+        var todoInput = todoForm.querySelector("input");
+        var todoButton = todoForm.querySelector("button");
+
+        todoButton.addEventListener("click",handleTodo);
+        
+        
+        //등록버튼 핸들링 함수
+         function handleTodo(){
+            createTodo(todoInput.value);//생성함수 호출
+            todoInput.value="";//할일초기화 
+         }
+        //할일목록 생성 함수
+        function createTodo(text){
+
+            var ul = document.querySelector(".todoList");//리스트목록
+            
+            //삭제버튼생성
+            var btn = document.createElement("button");
+            btn.innerHTML = "X";
+            console.log(btn);
+            btn.addEventListener("click",deleteTodo);
+
+            //이동버튼 생성 후에 eventListner 기법으로 todoup 함수. tododown 함수를 연결
+            //up
+            var todoup = document.createElement("button");
+            todoup.innerHTML="↑";
+            todoup.addEventListener("click",todoup);
+
+            //down
+            var tododown = document.createElement("button");
+            tododown.innerHTML="↓";
+            tododown.addEventListener("click",tododown);
+
+            //li생성
+            li = document.createElement("li");
+            li.innerHTML=text;
+            console.log(li); 
+
+            //버튼 칸 생성
+            li.appendChild(btn);//li에 버튼을 저장
+            li.appendChild(todoup);
+            li.appendChild(tododown);
+            ul.appendChild(li);//ul의 li를 추가
+            
+            
+        }
+
+        //삭제함수
+        function deleteTodo(){
+            //console.log(event.target.parentElement);
+            
+            var todoList = document.querySelector(".todoList");
+            todoList.removeChild(this.parentElement);;
+            
+        }
+
+        //up 이동함수
+        function todoup(){
+            
+            var todoList = document.querySelector(".todoList");
+            var current = event.target.parentElement;
+            var previous = current.previousElementSibling;
+
+         
+           if(previous === 0 )return;
+            if(confirm("이동하시겠습니까?")){
+                todoList.insertBefore(previous, current.nextElementSibling);
+            }else{
+                return;
+            }
+           }
+
+          
+        
+        
+        //down 이동함수
+        function tododown(){
+            var todoList = document.querySelector(".todoList");
+            var current = evenet.target.parentElement;
+            var next = current.nextElementSibling;
+
+            if(next === 0)return;
+                if(confirm("이동하시겠습니까")){
+                    todoList.insertBefore(previous, next.nextElementSibling);
+
+                }else{
+                    return;
+                }
+            }
+        
+
+    </script>
+</body>
+</html>

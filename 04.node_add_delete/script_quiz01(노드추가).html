@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    table{border-spacing: 0; border-collapse: collapse;}
+    table thead tr th {border: 1px solid #777;}
+    
+</style>
+
+</head>
+<body>
+    
+    <table>
+        
+        <thead><!-- 제목영역 -->
+            <tr>
+                <th>교시</th>
+                <th>훈련과목</th>
+                <th>담당자</th>
+                <th>훈련내용</th>
+            </tr>
+        </thead>
+        
+        <tbody class="todoList"> <!-- 내용영역  -->
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text"></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text"></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" id="addList1">5개 추가하기</button>
+    <button type="button" id="addList2">1개 추가하기</button>
+
+    <script>
+            
+        var addList2 =document.getElementById("addList2");
+        addList2.onclick = function(){
+
+            var tr = document.createElement("tr");
+            for(var i = 1; i<=4; i++){
+                
+                var td = document.createElement("td");
+               var input = document.createElement("input");
+               td.appendChild(input);
+               tr.appendChild(td);
+               if(i==1){
+                   input.size = 3;
+               }else if(i == 3){
+                   input.size =5;
+               }
+               
+               
+            }
+            document.querySelector(".todoList").appendChild(tr);
+        }
+
+
+        var addList1 =document.getElementById("addList1");
+        addList1.onclick = function(){
+
+            for(var j = 1; j<=5;j++){
+
+            var tr = document.createElement("tr"); //tr생성 1.tr5개까지생성
+            for(var i = 1; i<=4; i++){ //4번반복
+                
+                var td = document.createElement("td"); //tr1 . td1~4생성
+               var input = document.createElement("input"); //tr1 td input1~4번
+               td.appendChild(input); //td에 input을 자식으로 넣을것
+               tr.appendChild(td); //tr1 -td1~4
+               if(i==1){
+                   input.size = 3; //1번째면 size를 바꿈
+               }else if(i == 3){
+                   input.size =5;
+               }
+               
+               
+            }
+            document.querySelector(".todoList").appendChild(tr);
+        }
+            
+        }
+
+
+
+        /*
+        var addList1 = document.getElementById("addlist1");
+        var addList2 = document.getElementById("addlist2");
+        var todoList = document.querySelector(".todoList");
+        addList1.addEventListener("click", createList1);
+        addList2.addEventListener("click", createList2);
+        
+        
+        //1개
+        function createList1(){
+            var tr = document.createElement("tr");//tr생성
+            
+            var td = document.createElement("td");
+            var str = "<input type='text' size='3'>"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+              
+            var td = document.createElement("td");
+            var str = "<input type='text'>"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+              
+            var td = document.createElement("td");
+            var str = "<input type='text' size='5'>"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+              
+            var td = document.createElement("td");
+            var str = "<input type='text' >"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+            todoList.appendChild(tr);
+        }
+        //2개
+        function createList2(){
+         for(var i = 1; i<=5; i++){
+              var tr = document.createElement("tr");//tr생성
+            
+            var td = document.createElement("td");
+            var str = "<input type='text' size='3'>"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+              
+            var td = document.createElement("td");
+            var str = "<input type='text'>"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+              
+            var td = document.createElement("td");
+            var str = "<input type='text' size='5'>"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+              
+            var td = document.createElement("td");
+            var str = "<input type='text' >"
+            td.innerHTML=str;
+            tr.appendChild(td);//tr 에 1개추가 
+
+            todoList.appendChild(tr);
+         }
+        }
+        */
+
+        
+    </script>
+</body>
+</html>

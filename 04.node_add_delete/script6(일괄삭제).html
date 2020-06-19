@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    table{border-collapse: collapse; border-spacing: 0;}
+    thead tr th,
+    tbody tr th{border: 1px solid #777}
+</style>
+
+</head>
+<body>
+    <button type="button" id ="del">일괄삭제</button>
+    
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" class="allcheck"></th>
+                <th>번호</th>
+                <th>여름</th>
+                <th>내용</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th><input type="checkbox" class="check"></th>
+                <th>번호</th>
+                <th>여름</th>
+                <th>2</th>
+                <th>2020-01-02</th>
+            </tr>
+
+            <tr>
+                <th><input type="checkbox" class="check"></th>
+                <th>번호</th>
+                <th>여름</th>
+                <th>3</th>
+                <th>2020-01-03</th>
+            </tr>
+
+            <tr>
+                <th><input type="checkbox" class="check"></th>
+                <th>번호</th>
+                <th>여름</th>
+                <th>4</th>
+                <th>2020-01-04</th>
+            </tr>
+
+            <tr>
+                <th><input type="checkbox" class="check"></th>
+                <th>번호</th>
+                <th>여름</th>
+                <th>5</th>
+                <th>2020-01-05</th>
+            </tr>
+
+            <tr>
+                <th><input type="checkbox" class="check"></th>
+                <th>번호</th>
+                <th>여름</th>
+                <th>6</th>
+                <th>2020-01-06</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var del = document.getElementById("del");
+        var list = document.querySelectorAll(".check");
+        del.onclick = function(){
+            
+            //console.log(list[0].checked)
+            //console.log(list[0].value)
+            
+            for(var i=0; i < list.length; i++){
+                if(list[i].checked){
+                    list[i].parentElement.parentElement.remove();//자기자신을 삭제
+
+                }
+            }
+        }
+
+        //일괄선택
+        
+        var allcheck = document.querySelector(".allcheck");
+        allcheck.onclick = function(){
+           
+           if(allcheck.checked){
+               for(var i = 0; i <  list.length; i++){
+                 
+                      list[i].checked = true;             
+               }
+           } else{
+               for(var i =0; i<list.length; i++){
+                list[i].checked=false;
+               }
+           }
+           
+
+        }
+    </script>
+</body>
+</html>

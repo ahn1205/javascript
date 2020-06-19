@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0px; border-collapse: collapse;}
+        table thead tr th {border: 2px solid #777;}
+        
+        table tbody tr td {border: 1px solid #777;}
+    </style>
+</head>
+<body>
+    <table style="border-color: 1px solid black;">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var btn_arr = document.querySelectorAll(".btn");
+        for(var i = 0; i <btn_arr.length; i++){
+            btn_arr[i].onclick = function(e) {
+                console.log("1");
+                //e.parentElement.parentElement.removeChild(btn_arr.children[i]);
+                var tbody = document.querySelector("table tbody");
+                var tr = e.target.parentElement.parentElement;
+                tbody.removeChild(tr);
+            }
+        }
+    </script>
+</body>
+</html>
