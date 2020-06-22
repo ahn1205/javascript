@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- 기능별로 다른 버튼을 가지고 있으며, 여러클래스를 포함 했을 때 처리하는 방법 -->
+<!-- 1.button에 인라인태그 방식으로 동일함수 실행 -->
+<!-- 2.버블링으로 event걸고 classList속성을 사용 -->
+<!--  -->
+
+<body>
+    
+    <div class="list">
+        <div>
+            <span>홍길동</span>
+            <button type="button" class="btn sel">선택</button>
+            <button type="button" class="btn del">선택</button>
+        </div>
+        <div>
+            <span>길길동</span>
+            <button type="button" class="btn sel">선택</button>
+            <button type="button" class="btn del">선택</button>
+        </div>
+        <div>
+            <span>홍길자</span>
+            <button type="button" class="btn sel">선택</button>
+            <button type="button" class="btn del">선택</button>
+        </div>
+    </div>
+
+    <script>
+        var list = document.querySelector(".list");
+        list.onclick = function(){
+            //console.log(event.target.className);//단일 클래스값 확인
+            //console.dir(event.target.classList)//다중 클래스값 확인
+            //console.log(event.target.classList.contains("sel"))
+            
+            //이벤트의 타겟클래스에 sel이 포함되어 있다면 true, 아니라면 false
+            if(event.target.classList.contains("sel")){
+                event.target.parentElement.style.color = "red";//색상변경
+                
+            }else if (event.target.classList.contains("del")){
+                event.target.parentElement.remove();//삭제
+            }
+        }
+    </script>
+</body>
+</html>

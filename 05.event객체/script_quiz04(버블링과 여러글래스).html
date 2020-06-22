@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .mainTable{border-collapse: collapse; width: 100%; text-align: center;}
+    thead tr th, 
+    tbody tr td {
+        border:1px solid black;
+    }
+</style>
+</head>
+<body>
+    <table class="mainTable">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>과정명</th>
+                <th>담당교수</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+
+        <tbody class="main">
+            <tr class="gang">
+                <td>1</td>
+                <td>강남자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-info testResult">시험 결과</button>
+                    <button type="button" class="btn-default scoretInfo">성적관리</button>
+                </td>
+                
+            </tr>
+            <tr class="jong">
+                <td>2</td>
+                <td>종로응용자바</td>
+                <td>홍길자</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-info testResult">시험 결과</button>
+                    <button type="button" class="btn-default scoretInfo">성적관리</button>
+                </td>
+                
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+        /*
+        1.버블링으로 이벤트를걸고 , textInfo라면 "시험기본정보"출력
+         testInput 이라면 "시험 출제"
+         testResult이라면 "시험 결과"
+         scoreInfo라면 "성적관리"
+         형식으로 출력이 되도록 이벤트를 처리
+        */
+        var mainTable = document.querySelector(".mainTable");
+        var main = mainTable.querySelector(".main");
+        //var gang = document.querySelector(".gang");
+        //var jong = document.querySelector(".jong");
+       
+        main.onclick = function(){
+           
+           if(event.target.tagName !== "BUTTON"){
+            return;
+           }else if (event.target.classList.contains("testInfo")){
+            console.log(event.target);
+            console.log("시험기본정보");
+           } else if (event.target.classList.contains("testInput")){
+            console.log(event.target);
+            console.log("시험출제");
+           }  else if (event.target.classList.contains("testResult")){
+            console.log(event.target);
+            console.log("시험 결과");
+           }else if (event.target.classList.contains("scoretInfo")){
+            console.log(event.target);
+            console.log("시험 성적관리");
+           }       
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+            /* if(event.target.tagName !== main)return;
+
+            gang.onclick = function(){
+                console.log("11");
+               if(event.target.tagName !== gang)return;
+               
+               if(event.target.classList.contains("btn-primary testInfo")){
+                   console.log("시험기본정보출력")
+
+               }else if (event.target.classList.contains("btn-danger testInput")) {
+                console.log("시험 출제")
+               } else if (event.target.classList.contains("btn-info testResult")) {
+                console.log("시험결과")
+               } else if (event.target.classList.contains("btn-default scoretInfo")) {
+                console.log("성적 관리")
+               }   
+                
+            }
+
+            jong.onclick = function(){
+                if(event.target.tagName !== jong)return;
+                
+            }*/
+
+
+        }
+
+    </script>
+</body>
+</html>
