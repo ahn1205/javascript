@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main-banner1{
+            background: linear-gradient(90deg,#0c151c 1.3125rem,transparent 1%) 50%,
+            linear-gradient(#0c151c 1.3125rem,transparent 1%) 50%,
+            #263747;
+            background-size: 1.5rem 1.5rem;
+            padding: 6rem 0;
+            text-align: center;
+            
+        }
+        .main-banner1 img{position: relative; display: none; animation: imgTop .5s linear;}
+        @keyframes imgTop{
+            from{
+                top:-50px; opacity: 0;
+            }to{
+                top:0px; opacity: 1;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main-banner1">
+        <img src="img/1.jpg" width="200">
+        <img src="img/2.jpg" width="200">
+        <img src="img/3.jpg" width="200">
+        <img src="img/4.jpg" width="200">
+        <img src="img/1.jpg" width="200">
+        <img src="img/2.jpg" width="200">
+        <img src="img/3.jpg" width="200">
+        <img src="img/4.jpg" width="200">
+        <img src="img/1.jpg" width="200">
+        <img src="img/2.jpg" width="200">
+        <img src="img/3.jpg" width="200">
+        <img src="img/4.jpg" width="200">
+        <img src="img/1.jpg" width="200">
+        <img src="img/2.jpg" width="200">
+        <img src="img/3.jpg" width="200">
+        <img src="img/4.jpg" width="200">
+        <img src="img/1.jpg" width="200">
+        <img src="img/2.jpg" width="200">
+        <img src="img/3.jpg" width="200">
+        <img src="img/4.jpg" width="200">
+    </div>
+
+    <script>
+        /*
+        1.interval함수를 이용해서 이미지를 순서대로 보여지게 처리 합니다.
+        2.마지막 이미지에 도달하면 clearInterval을 사용해서 time을 중지해주세요.
+        */
+       
+
+       /* var num = 0;
+        function loadimg (){
+            var div1 = document.querySelector(".main-banner1");
+            var images= div1.childNodes;
+
+            console.log(images[num]);
+            num++;
+            images[num].style.display="inline-block";
+          
+        }*/
+
+
+        
+        
+        var div1 = document.querySelector(".main-banner1");
+        var index = 0;
+        var stop = null;
+        function loadimg (){
+           
+            div1.children[index].style.display = "inline";
+            index++;
+
+            //스탑의 조건 
+            if(index === div1.children.length ) clearInterval(stop);
+
+            
+        }
+        
+        (function(){
+          stop = setInterval(loadimg,100);
+        })();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" class="stopInterval">스탑버튼</button>
+    <script>
+        //setInterval(실행함수, 인터벌시간) 일정 시간마다반복실행
+        //var test = function(){
+          //  console.log(1);
+       // }
+        
+        setInterval(function(){
+            console.log(1);
+        },1000)
+
+        //스탑 버튼 이벤트
+        //clearInterval(인터벌함수)-인터벌 중지
+        var stopInterval = document.querySelector(".stopInterval");
+        stopInterval.onclick = function(){
+            clearInterval(stop);
+        }
+    </script>
+</body>
+</html>
