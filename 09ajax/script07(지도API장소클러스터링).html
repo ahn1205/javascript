@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 50%;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 align="center">코로나 19 마스크 판매 현황</h2>
+
+    <div id="map"></div>
+   
+   <script>
+        var map;
+        function initMap() {
+
+        }
+
+
+        var lat;
+        var lng;
+        function ajax(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+
+            fetch(`https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?lat=${lat}&lng=${lng}&m=5000`).then(function (response) {
+                if (response.status !== 200) {
+                    alert("서버상의 문제가 발생했습니다.")
+                    return;
+                } else {
+                    return response.json();
+                }
+
+            }).then(function (jsonData) {
+                //지도에 맵생성하는 코드 
+                    map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 13,
+                    center: new google.maps.LatLng(lat, lng)
+                })
+                var script = document.createElement('script');
+                script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+                document.getElementsByTagName('head')[0].appendChild(script);
+                // Loop through the results array and place a marker for each
+                // set of coordinates.
+
+                //마커를 루프로 돌려서 화면에 찍어주는 코드
+
+                    window.eqfeed_callback = function (jsonData) {
+
+                        for (var i = 0; i < jsonData.features.length; i++) {
+                            var coords = jsonData.features[i].geometry.coordinates;
+                            var latLng = new google.maps.LatLng(lat, lng);
+                            var marker = new google.maps.Marker({
+                                position: latLng,
+                                map: map
+                            });
+                        }
+                    }
+                });
+            }
+        
+
+
+        //위치정보 실패 함수
+        function coorFail() {
+
+        }
+
+        (function () {
+            navigator.geolocation.getCurrentPosition(ajax, coorFail);
+        })();
+
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASgPl75eksJubrdBQoTEp_90pyt9qJCu8&callback=initMap">
+        </script>
+</body>
+
+</html>
